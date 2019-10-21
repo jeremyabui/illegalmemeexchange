@@ -1,3 +1,41 @@
 body {
     background-color: gray;
 }
+
+/* Navbar Styling */
+.navbar {
+    height: 10vh;
+}
+.navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-nav li{
+    margin-left: 5px;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh;
+}
+
+.sidebar-sticky ul:first-child {
+    margin-top: 10vh;
+}
+
+/* Main Section */
+.welcomeMsg {
+    margin-top: 10vh;
+}
+
+/* Card Styling */
+.cardSection {
+    display:flex; 
+    /* flex-direction: column; */
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+}
