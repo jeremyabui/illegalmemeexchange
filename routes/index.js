@@ -1,3 +1,3 @@
 module.exports = {
-    // views: require('./views'),
+    views: require('./views'),
 };
