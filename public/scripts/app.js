@@ -34,7 +34,7 @@ const postMeme = () => {
     .then(res => {
         const memeArray = res.data;
         memeArray.forEach(function(meme) {
-            $('.card').append(`
+            $('.cardSection').append(`
             <div class="card">
                 <div class="card-header bg-transparent">
                     <h2 class="memeTitle">${meme.title}</h2>
@@ -46,7 +46,6 @@ const postMeme = () => {
             </div>
             `);
         });
-
     })
     .catch(error => console.log(error))
 }
