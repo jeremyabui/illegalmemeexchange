@@ -22,7 +22,8 @@ const PORT = process.env.PORT || 3000;
 
 //SECTION View Routes
 
-// app.use('/', routes.views);
+app.use('/', routes.views);
 
 //------------------------START SERVER-------------------------
 
+app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}/`));
