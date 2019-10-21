@@ -1,3 +1,21 @@
 body {
     background-color: gray;
 }
+
+/* Navbar Styling */
+.navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-nav li{
+    margin-left: 5px;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh;
+}
+
+.sidebar-sticky ul:first-child {
+    margin-top: 8vh;
+}
