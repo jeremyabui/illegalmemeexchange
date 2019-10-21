@@ -51,3 +51,7 @@ body {
 .card-body {
     padding: 10px;
 }
+
+.memeImg {
+    max-width: 100%;
+}
