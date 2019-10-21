@@ -31,11 +31,23 @@ body {
 /* Card Styling */
 .cardSection {
     display:flex; 
-    /* flex-direction: column; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
-    justify-content: center;
     align-items: center;
     width: 60vw;
+}
+
+.card-header {
+    padding: 5px 12px;
+}
+.memeTitle {
+    font-size: 20px;
+}
+
+.card-body {
+    padding: 10px;
 }
