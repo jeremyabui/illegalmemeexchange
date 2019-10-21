@@ -41,6 +41,8 @@ app.get('/api/v1', (req, res) => {
 //SECTION User Routes
 app.use('/api/v1/users', routes.user);
 
+//SECTION Meme Routes
+app.use('/api/v1/memes', routes.meme);
 
 //------------------------START SERVER-------------------------
 
