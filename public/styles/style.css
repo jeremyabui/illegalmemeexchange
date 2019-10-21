@@ -3,6 +3,9 @@ body {
 }
 
 /* Navbar Styling */
+.navbar {
+    height: 10vh;
+}
 .navbar-nav {
     flex-direction: row;
 }
@@ -17,5 +20,22 @@ body {
 }
 
 .sidebar-sticky ul:first-child {
-    margin-top: 8vh;
+    margin-top: 10vh;
+}
+
+/* Main Section */
+.welcomeMsg {
+    margin-top: 10vh;
+}
+
+/* Card Styling */
+.cardSection {
+    display:flex; 
+    /* flex-direction: column; */
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
 }
