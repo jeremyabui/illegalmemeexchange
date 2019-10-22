@@ -11,7 +11,8 @@ router.get('/:title', ctrl.meme.find);
 //Create Route
 router.post('/', ctrl.meme.create);
 
-
+//Delete Route
+router.delete('/:id', ctrl.meme.destroy);
 
 
 
