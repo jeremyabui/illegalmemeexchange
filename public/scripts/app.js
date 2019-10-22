@@ -65,8 +65,10 @@ form && form.addEventListener('submit', (event) => {
     const userData = {};
     event.preventDefault();
 
-    [...form].forEach(input =>  {
+    [...form.elements].forEach(input =>  {
         if (input.type !== 'submit' && input.value === '') {
+            console.log('changing form to false');
+            console.log(`${input.type} and value is ${input.value}`);
             formIsValid = false;
             input.classList.add('input-error');
             input.insertAdjacentHTML('afterend', `
@@ -75,6 +77,7 @@ form && form.addEventListener('submit', (event) => {
             </div>
         `);
         } else if (input.type === 'password' && input.value.length < 4) {
+            console.log('changing form to false2');
             formIsValid = false;
             input.classList.add('input-error');
             input.insertAdjacentHTML('afterend', `
@@ -83,14 +86,15 @@ form && form.addEventListener('submit', (event) => {
             </div>
         `);
         }
-
+        // console.log('first statement')
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
+        console.log(userData)
     });
-
+    console.log(formIsValid);
     // Signup form submission
-    if (document.getElementById('signupForm').id === 'signupForm' && formIsValid) {
+    if (form.id === 'signupForm' && formIsValid) {
         fetch('/api/v1/users', {
             method: 'POST',
             headers: {
@@ -105,23 +109,85 @@ form && form.addEventListener('submit', (event) => {
         .catch(error => console.log(error));
     }
 
+    console.log('click before login form func')
+
     // Handle Login
-    // if (form.id === 'loginForm' && formIsValid) {
-    //     console.log('submitting user login ---->', userData);
-    //     fetch('/api/v1/login', {
-    //         method: 'POST', 
-    //         credentials: 'include',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(userData)
-    //     })
-    //     .then(dataStream => dataStream.json())
-    //     .then(res => {
-    //         console.log(res);
-    //         if (res.status === 201) return window.location = `/`
-    //         // May need to update window location on login
-    //     })
-    //     .catch(error => console.log(error))
-    // }
+    if (form.id === 'loginForm' && formIsValid) {
+        console.log('login submit button');
+        console.log('submitting user login ---->', userData);
+        fetch('/api/v1/users', {
+            method: 'POST', 
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(dataStream => dataStream.json())
+        .then(res => {
+            console.log(res);
+            console.log('login successful')
+            if (res.status === 201) return window.location = `/successful.html`
+            // May need to update window location on login
+        })
+        .catch(error => console.log(error))
+    }
 });
+
+
+// Login Event listener
+// document.getElementById('loginForm') && form.addEventListener('submit', (event) => {
+//     event.preventDefault();
+//     console.log('click')
+//     let formIsValid = true;
+//     const userData = {};
+
+//     [...form.elements].forEach(input =>  {
+//         if (input.type !== 'submit' && input.value === '') {
+//             console.log('changing form to false');
+//             console.log(`${input.type} and value is ${input.value}`);
+//             formIsValid = false;
+//             input.classList.add('input-error');
+//             input.insertAdjacentHTML('afterend', `
+//             <div class='alert ${input.id}-message'>
+//               Please enter your ${input.id}
+//             </div>
+//         `);
+//         } else if (input.type === 'password' && input.value.length < 4) {
+//             console.log('changing form to false2');
+//             formIsValid = false;
+//             input.classList.add('input-error');
+//             input.insertAdjacentHTML('afterend', `
+//             <div class='alert ${input.id}-message'>
+//               Password must be at least 4 characters
+//             </div>
+//         `);
+//         }
+//         // console.log('first statement')
+//         if (input.type !== 'submit' && formIsValid) {
+//             userData[input.name] = input.value;
+//         }
+//         console.log(userData)
+    
+//     if (document.getElementById('loginForm') === 'loginForm' && formIsValid) {
+//         console.log('login submit button');
+//         console.log('submitting user login ---->', userData);
+//         fetch('/api/v1/login', {
+//             method: 'POST', 
+//             credentials: 'include',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(userData)
+//         })
+//         .then(dataStream => dataStream.json())
+//         .then(res => {
+//             console.log(res);
+//             console.log('login successful')
+//             if (res.status === 201) return window.location = `/`
+//             // May need to update window location on login
+//         })
+//         .catch(error => console.log(error))
+//     }
+// });
+// })

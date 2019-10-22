@@ -3,11 +3,11 @@ const router = express.Router();
 const ctrl = require('../controllers');
 
 // ------- Auth ------- //
-router.post('/', ctrl.auth.createUser);
+router.post('/signup', ctrl.auth.createUser);
 router.post('/login', ctrl.auth.createSession);
 router.get('/verify', ctrl.auth.verifyAuth);
 
 // ------- Profile ------- //
-// router.get('/', controller.auth.showProfile)
+// router.get('/', ctrl.auth.showProfile)
 
 module.exports = router;

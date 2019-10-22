@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="/styles/style.css">
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Volkhov&display=swap" rel="stylesheet">
-    <script defer src="/scripts/julian.js"></script>
+    <!-- <script defer src="/scripts/julian.js"></script> -->
     <!-- jQuery -->
     <script defer
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script defer src="/scripts/app.js"></script>
     <title>IME</title>
 </head>
 <body>
@@ -139,7 +140,7 @@
                         <input type="password" id='signupPassword2' name="password2"/>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
                         <input type='submit' value="Signup"/>
                     </div>
                 </form>
@@ -156,24 +157,23 @@
                     <h5 class="modal-title" id="loginModalLabel">Login</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    Login Form
-                        <form id="loginForm">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id='loginEmail' name="email"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id='loginPassword' name="password"/>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <input type="submit" value="Login"/>
-                            </div>
-                        </form>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id='loginEmail' name="email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id='loginPassword' name="password"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
+                            <input type="submit" value="Login"/>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
