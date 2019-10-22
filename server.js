@@ -1,6 +1,7 @@
 //-------------------------SETUP------------------------------
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session')
 //internal modules
 const db = require('./models');
 const routes = require('./routes');
@@ -13,6 +14,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'))
+
+app.use(session({
+    secret: 'ohshitthisisasecret',
+    resave: false, 
+    saveUninitialized: false, 
+  }));
 
 //------------------------CONFIGURATION VARIABLES--------------
 
