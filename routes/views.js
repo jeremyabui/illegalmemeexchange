@@ -10,4 +10,11 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, ('../views/index.html')));
 });
 
+//GET Signup
+router.get('/signup', (req, res) => {
+    res.sendFile('views/auth/signup.html', {
+        root: `${__dirname}/../`
+    });
+});
+
 module.exports = router;
