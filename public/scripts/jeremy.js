@@ -60,68 +60,6 @@ postMeme();
 
 
 // ------------ Form Submission ----------- //
-// form && form.addEventListener('submit', (event) => {
-//     console.log('click')
-//     let formIsValid = true;
-//     const userData = {};
-//     event.preventDefault();
-
-//     [...form.elements].forEach(input =>  {
-//         if (input.type !== 'submit' && input.value === '') {
-//             console.log('changing form to false');
-//             console.log(`${input.type} and value is ${input.value}`);
-//             formIsValid = false;
-//             input.classList.add('input-error');
-//             input.insertAdjacentHTML('afterend', `
-//             <div class='alert ${input.id}-message'>
-//               Please enter your ${input.id}
-//             </div>
-//         `);
-//         } else if (input.type === 'password' && input.value.length < 4) {
-//             console.log('changing form to false2');
-//             formIsValid = false;
-//             input.classList.add('input-error');
-//             input.insertAdjacentHTML('afterend', `
-//             <div class='alert ${input.id}-message'>
-//               Password must be at least 4 characters
-//             </div>
-//         `);
-//         }
-//         // console.log('first statement')
-//         if (input.type !== 'submit' && formIsValid) {
-//             userData[input.name] = input.value;
-//         }
-//         console.log(userData)
-//     });
-//     console.log(formIsValid);
-
-//     console.log('click before login form func')
-
-//     // Handle Login
-//     if (form.id === 'loginForm' && formIsValid) {
-//         console.log('login submit button');
-//         console.log('submitting user login ---->', userData);
-//         fetch('/api/v1/users', {
-//             method: 'POST', 
-//             credentials: 'include',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(userData)
-//         })
-//         .then(dataStream => dataStream.json())
-//         .then(res => {
-//             console.log(res);
-//             console.log('login successful')
-//             if (res.status === 201) return window.location = `/successful.html`
-//             // May need to update window location on login
-//         })
-//         .catch(error => console.log(error))
-//     }
-// });
-
-
-// ------------ Splitting form Submissions ----------- //
 // Signup form submission
 document.getElementById('signupForm') && document.getElementById('signupForm').addEventListener('submit', (event) => {
     console.log('click')
