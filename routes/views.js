@@ -18,7 +18,10 @@ router.get('/signup', (req, res) => {
 });
 
 //GET newMeme
-router.get('/newMeme', (req, res) => {
+router.get(`/newMeme/:userId`, (req, res) => {
+    if (!req.session.currentUser) {
+        return res.redirect('/');
+    }
     res.sendFile('views/auth/newMeme.html', {
         root: `${__dirname}/../`
     });
