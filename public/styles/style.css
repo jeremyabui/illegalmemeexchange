@@ -4,6 +4,9 @@ body {
 
 
 /* Navbar Styling */
+.container-fluid {
+    padding: 0;
+}
 .navbar {
     height: 10vh;
     background-color: #4da2d5;
@@ -26,10 +29,17 @@ body {
 /* Sidebar */
 .sidebar {
     height: 100vh;
+    padding-right:0;
 }
 
 .sidebar-sticky ul:first-child {
     margin-top: 10vh;
+}
+
+.nav-item:hover {
+    background-color: #aaaaaa;
+    /* text-decoration: solid underline;
+    font-weight: 800; */
 }
 
 /* Main Section */
