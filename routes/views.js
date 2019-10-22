@@ -24,4 +24,14 @@ router.get('/newMeme', (req, res) => {
     });
 });
 
+//GET Profile
+router.get('/profile/:userId', (req, res) => {
+    if (!req.session.currentUser) {
+        return res.redirect('/');
+    }
+    res.sendFile('views/profile/userPage.html', {
+        root: `${__dirname}/../`
+    });
+});
+
 module.exports = router;

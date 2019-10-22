@@ -163,9 +163,10 @@ if (formIsValid) {
     .then(res => {
         console.log(res);
         console.log('login successful')
-        if (res.status === 201) return window.location = `/`
+        if (res.status === 201) return window.location = `/profile/${res.data.id}`
         // May need to update window location on login
     })
+    .then(postMeme())
     .catch(error => console.log(error))
 }
 });
