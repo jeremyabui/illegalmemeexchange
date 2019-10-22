@@ -1,3 +1,72 @@
 body {
-    background-color: gray;
+    background-color: #ececec;
+}
+
+
+/* Navbar Styling */
+.navbar {
+    height: 10vh;
+    background-color: #4da2d5;
+}
+
+.navbar-brand {
+    color: #000000;
+    font-family: 'Volkhov', serif;
+    font-size: 26px;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-nav li{
+    margin-left: 5px;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh;
+}
+
+.sidebar-sticky ul:first-child {
+    margin-top: 10vh;
+}
+
+/* Main Section */
+.welcomeMsg {
+    margin-top: 10vh;
+}
+
+/* Card Styling */
+.cardSection {
+    display:flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    align-items: center;
+    width: 60vw;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    padding: 5px 12px;
+}
+.memeTitle {
+    font-size: 20px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.memeImg {
+    max-width: 100%;
+}
+
+.btn-primary {
+    background-color: #555555;
+    border: none;
 }
