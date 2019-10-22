@@ -8,6 +8,7 @@ const MemeSchema = new Schema({
     likes: Number,
     poster: String,
     tags: [String],
+    template: [String],
 })
 
 const Meme = mongoose.model('Meme', MemeSchema);
