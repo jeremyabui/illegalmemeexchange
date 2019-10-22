@@ -51,6 +51,22 @@ app.use('/api/v1/users', routes.user);
 //SECTION Meme Routes
 app.use('/api/v1/memes', routes.meme);
 
+//Delete Route ============FOR DEBUGGING ONLY================
+
+// const removeAllMemes = () => {
+//     db.Meme.remove({}, (err, removedMemes) => {
+//         if(err){ 
+//             console.log(err);
+//             monggose.connection.close();
+//         } else {
+//             console.log('success', removedMemes);
+//             mongoose.connection.close();
+//         }
+//     })
+// }
+
+// removeAllMemes();
+
 //------------------------START SERVER-------------------------
 
 app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}/`));
