@@ -46,8 +46,23 @@ const create = (req, res) => {
     });
 };
 
+//Destroy
+
+const destroy = (req, res) => {
+    db.Meme.findByIdAndDelete(req.params.id, (err, deletedMeme)=> {
+        if (err) return sendErr();
+
+        res.json({
+            status: 200,
+            data: deletedMeme,
+            requestedAt: new Date().toLocaleString(),
+        });
+    });
+};
+
 module.exports = {
     index,
     find,
     create,
+    destroy,
 }
