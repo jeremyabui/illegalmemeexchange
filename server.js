@@ -51,6 +51,9 @@ app.use('/api/v1/users', routes.user);
 //SECTION Meme Routes
 app.use('/api/v1/memes', routes.meme);
 
+//SECTION Auth Routes
+app.use('/api/v1/auth', routes.meme);
+
 //Delete Route ============FOR DEBUGGING ONLY================
 
 // const removeAllMemes = () => {

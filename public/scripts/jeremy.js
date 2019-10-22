@@ -159,7 +159,7 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
     console.log(formIsValid);
     // Signup form submission
     if (form.id === 'signupForm' && formIsValid) {
-        fetch('/api/v1/users', {
+        fetch('/api/v1/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -213,7 +213,7 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
 if (formIsValid) {
     console.log('login submit button');
     console.log('submitting user login ---->', userData);
-    fetch('/api/v1/users', {
+    fetch('/api/v1/login', {
         method: 'POST', 
         credentials: 'include',
         headers: {
