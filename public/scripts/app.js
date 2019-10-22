@@ -60,7 +60,7 @@ postMeme();
 
 // ------------ Form Submission ----------- //
 form && form.addEventListener('submit', (event) => {
-    console.log(event)
+    console.log('click')
     let formIsValid = true;
     const userData = {};
     event.preventDefault();
