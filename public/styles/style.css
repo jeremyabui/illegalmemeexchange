@@ -1,11 +1,20 @@
 body {
-    background-color: gray;
+    background-color: #ececec;
 }
+
 
 /* Navbar Styling */
 .navbar {
     height: 10vh;
+    background-color: #4da2d5;
 }
+
+.navbar-brand {
+    color: #000000;
+    font-family: 'Volkhov', serif;
+    font-size: 26px;
+}
+
 .navbar-nav {
     flex-direction: row;
 }
@@ -39,6 +48,7 @@ body {
 .card {
     align-items: center;
     width: 60vw;
+    margin-bottom: 20px;
 }
 
 .card-header {
@@ -54,4 +64,9 @@ body {
 
 .memeImg {
     max-width: 100%;
+}
+
+.btn-primary {
+    background-color: #555555;
+    border: none;
 }
