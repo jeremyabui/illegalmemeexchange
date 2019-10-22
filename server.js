@@ -52,7 +52,7 @@ app.use('/api/v1/users', routes.user);
 app.use('/api/v1/memes', routes.meme);
 
 //SECTION Auth Routes
-app.use('/api/v1/auth', routes.meme);
+app.use('/api/v1', routes.api);
 
 //Delete Route ============FOR DEBUGGING ONLY================
 
