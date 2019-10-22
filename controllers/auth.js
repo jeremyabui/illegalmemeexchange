@@ -52,7 +52,7 @@ const createSession = (req, res) => {
             error: [{message: `Username or password is incorrect`}]
         });
 
-        bcrypt.compare(req.body.loginPassword, foundUser.password, (error, isMatch) => {
+        bcrypt.compare(req.body.password, foundUser.password, (error, isMatch) => {
             if (error) return sendErr();
 
             if (isMatch) {
