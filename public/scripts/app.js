@@ -33,6 +33,7 @@ const postMeme = () => {
     .then(dataStream=> dataStream.json())
     .then(res => {
         const memeArray = res.data;
+        console.log(memeArray)
         memeArray.forEach(function(meme) {
             $('.cardSection').append(`
             <div class="card">
