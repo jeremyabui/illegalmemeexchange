@@ -17,4 +17,11 @@ router.get('/signup', (req, res) => {
     });
 });
 
+//GET newMeme
+router.get('/newMeme', (req, res) => {
+    res.sendFile('views/auth/newMeme.html', {
+        root: `${__dirname}/../`
+    });
+});
+
 module.exports = router;
