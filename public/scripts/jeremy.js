@@ -28,7 +28,7 @@ const postMeme = () => {
     fetch(`/api/v1/memes`, {
         method: 'GET', 
         header: {
-            'Content-Type': 'applicaion/json',
+            'Content-Type': 'application/json',
         }
     })
     .then(dataStream=> dataStream.json())
@@ -75,9 +75,6 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             formIsValid = false;
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
-            // console.log($(`.${input.id}-message`).html())
-            // const $alertID = $(`.${input.id}-message`);
-            // console.log($alertID);
         //     input.insertAdjacentHTML('afterend', `
         //     <div class='alert ${input.id}-message'>
         //       Please enter your ${input.name}
@@ -89,11 +86,23 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             formIsValid = false;
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
+            $('.password-feedback').text(`Password must be at least 4 characters`);
         //     input.insertAdjacentHTML('afterend', `
         //     <div class='alert ${input.id}-message'>
         //       Password must be at least 4 characters
         //     </div>
         // `);
+
+        // Password check
+        } else if (document.getElementById('signupPassword').value !== document.getElementById('signupPassword2').value) {
+            formIsValid = false;
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+            console.log(`password 1 = ` + document.getElementById('signupPassword').value);
+            console.log(`password 2 = ` + document.getElementById('signupPassword2').value);
+            $('.password-feedback').text(`Passwords do not match`);
+        
+
         } else {
             input.classList.remove('is-invalid');
             input.classList.add('is-valid');
@@ -129,6 +138,21 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Login form
 document.getElementById('loginForm') && document.getElementById('loginForm').addEventListener('submit', (event) => {
     console.log('click')
@@ -136,8 +160,8 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
     const userData = {};
     event.preventDefault();
 
+
     [...document.getElementById('loginForm').elements].forEach(input =>  {
-        const $input = input;
         if (input.type !== 'submit' && input.value === '') {
             console.log('changing form to false');
             console.log(`${input.type} and value is ${input.value}`);
@@ -149,6 +173,7 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
             //   Please enter your ${input.id}
             // </div>
         // `);
+
         } else if (input.type === 'password' && input.value.length < 4) {
             console.log('changing form to false2');
             formIsValid = false;
@@ -160,6 +185,8 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
         //       Password must be at least 4 characters
         //     </div>
         // `);
+
+        
         } else {
             input.classList.remove('is-invalid');
             input.classList.add('is-valid');
