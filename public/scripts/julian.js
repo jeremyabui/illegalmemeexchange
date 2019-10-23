@@ -28,7 +28,7 @@ const postMeme = () => {
     fetch(`/api/v1/memes`, {
         method: 'GET', 
         header: {
-            'Content-Type': 'applicaion/json',
+            'Content-Type': 'application/json',
         }
     })
     .then(dataStream=> dataStream.json())

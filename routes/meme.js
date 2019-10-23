@@ -6,13 +6,16 @@ const ctrl = require('../controllers');
 router.get('/', ctrl.meme.index);
 
 //Find Route
-router.get('/:title', ctrl.meme.find);
+// router.get('/:title', ctrl.meme.find);
+
+//Find by ID Route
+router.get('/:memeId', ctrl.meme.findById)
 
 //Create Route
 router.post('/', ctrl.meme.create);
 
 //Delete Route
-router.delete('/:id', ctrl.meme.destroy);
+router.delete('/:memeId', ctrl.meme.destroy);
 
 
 
