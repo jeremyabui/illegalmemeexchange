@@ -95,7 +95,7 @@
             </div>
             <div class="modal-body">
                 <!-- Form -->
-                <form id="signupForm">
+                <!-- <form id="signupForm">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" id='signupUsername' name="username"/>
@@ -112,6 +112,61 @@
                         <label for="password2">Confirm Password</label>
                         <input type="password" id='signupPassword2' name="password2"/>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
+                        <input type='submit' value="Signup"/>
+                    </div>
+                </form> -->
+
+                <!-- Bootstrap Form -->
+                <form id="signupForm">
+                      <div class="">
+                        <label for="validationServerUsername">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" name ="username" class="form-control" id="signupUsername" placeholder="Username" aria-describedby="inputGroupPrepend3">
+                            <div class="invalid-feedback">
+                            Please choose a username.
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                        </div>
+                        <label for="validationServerEmail">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="email" name="email" class="form-control" id="signupEmail" placeholder="youremail@gmail.com" aria-describedby="inputGroupPrepend3">
+                            <div class="invalid-feedback">
+                            Please enter your email.
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="">
+                            <label for="validationServerPassword">Password</label>
+                            <input type="password" name="password" class="form-control" id="signupPassword" placeholder="Password">
+                            <div class="invalid-feedback">
+                                Password must be at least 4 characters
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                          </div>
+                          <div class="">
+                            <label for="validationServerConfirmPassword">Confirm Password</label>
+                            <input type="password"  name="password2" class="form-control" id="signupPassword2" placeholder="Please re-enter your password">
+                            <div class="invalid-feedback">
+                                Password must be at least 4 characters
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                          </div>
+                      </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
                         <input type='submit' value="Signup"/>
@@ -135,12 +190,28 @@
                 <div class="modal-body">
                     <form id="loginForm">
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id='loginEmail' name="email"/>
+                                <label for="validationServerEmail">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    </div>
+                                    <input type="email" name="email" class="form-control" id="signupEmail" placeholder="youremail@gmail.com" aria-describedby="inputGroupPrepend3">
+                                    <div class="invalid-feedback">
+                                    Please enter your email.
+                                    </div>
+                                    <div class="valid-feedback">
+                                            Looks good!
+                                    </div>
+                                </div>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id='loginPassword' name="password"/>
+                                <label for="validationServerPassword">Password</label>
+                                <input type="password" name="password" class="form-control" id="signupPassword" placeholder="Password">
+                                <div class="invalid-feedback">
+                                    Password must be at least 4 characters
+                                </div>
+                                <div class="valid-feedback">
+                                        Looks good!
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
