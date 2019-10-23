@@ -73,21 +73,30 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             console.log('changing form to false');
             console.log(`${input.type} and value is ${input.value}`);
             formIsValid = false;
-            input.classList.add('input-error');
-            input.insertAdjacentHTML('afterend', `
-            <div class='alert ${input.id}-message'>
-              Please enter your ${input.id}
-            </div>
-        `);
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+            // console.log($(`.${input.id}-message`).html())
+            // const $alertID = $(`.${input.id}-message`);
+            // console.log($alertID);
+        //     input.insertAdjacentHTML('afterend', `
+        //     <div class='alert ${input.id}-message'>
+        //       Please enter your ${input.name}
+        //     </div>
+        // `);
+
         } else if (input.type === 'password' && input.value.length < 4) {
             console.log('changing form to false2');
             formIsValid = false;
-            input.classList.add('input-error');
-            input.insertAdjacentHTML('afterend', `
-            <div class='alert ${input.id}-message'>
-              Password must be at least 4 characters
-            </div>
-        `);
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+        //     input.insertAdjacentHTML('afterend', `
+        //     <div class='alert ${input.id}-message'>
+        //       Password must be at least 4 characters
+        //     </div>
+        // `);
+        } else {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
         }
         // console.log('first statement')
         if (input.type !== 'submit' && formIsValid) {
@@ -121,27 +130,33 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
     event.preventDefault();
 
     [...document.getElementById('loginForm').elements].forEach(input =>  {
+        const $input = input;
         if (input.type !== 'submit' && input.value === '') {
             console.log('changing form to false');
             console.log(`${input.type} and value is ${input.value}`);
             formIsValid = false;
-            input.classList.add('input-error');
-            input.insertAdjacentHTML('afterend', `
-            <div class='alert ${input.id}-message'>
-              Please enter your ${input.id}
-            </div>
-        `);
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+            // input.insertAdjacentHTML('afterend', `
+            // <div class='alert ${input.id}-message'>
+            //   Please enter your ${input.id}
+            // </div>
+        // `);
         } else if (input.type === 'password' && input.value.length < 4) {
             console.log('changing form to false2');
             formIsValid = false;
-            input.classList.add('input-error');
-            input.insertAdjacentHTML('afterend', `
-            <div class='alert ${input.id}-message'>
-              Password must be at least 4 characters
-            </div>
-        `);
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+            
+        //     input.insertAdjacentHTML('afterend', `
+        //     <div class='alert ${input.id}-message'>
+        //       Password must be at least 4 characters
+        //     </div>
+        // `);
+        } else {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
         }
-        // console.log('first statement')
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
@@ -173,19 +188,5 @@ if (formIsValid) {
 
 
 $('.newMemeLink').on('click', () => {
-    // const userData = {};
-    // fetch('/newMeme', {
-    //     method: 'POST',
-    //     credentials: 'include',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(userData),
-    // })
-    // .then(dataStream => dataStream.json())
-    // .then(res => {
-    //     return window.location = `/newMeme/${res.data.id}`
-    // })
-    // .catch(error => console.log(error))
     return window.location = `/newMeme/${userId}`
 })
