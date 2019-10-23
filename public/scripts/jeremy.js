@@ -36,7 +36,7 @@ const postMeme = () => {
         const memeArray = res.data;
         console.log(memeArray)
         memeArray.forEach(function(meme) {
-            $('.cardSection').append(`
+            $('.cardSection').prepend(`
             <div class="card">
                 <div class="card-header bg-transparent">
                     <h2 class="memeTitle">${meme.title}</h2>
