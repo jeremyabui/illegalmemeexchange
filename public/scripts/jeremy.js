@@ -118,6 +118,13 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
         .then(res => {
             console.log(res);
         })
+        .then($('#signupForm').empty().append(`
+        <p>Thank you for signing up.</p>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
+            <button type="button" data-toggle="modal" data-target="#loginModal">Login</button>
+        </div>
+        `))
         .catch(error => console.log(error));
     }
 });
