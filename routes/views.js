@@ -37,4 +37,14 @@ router.get('/profile/:userId', (req, res) => {
     });
 });
 
+//GET myMemes
+router.get('/profile/myMemes/:userId', (req, res) => {
+    if (!req.session.currentUser) {
+        return res.redirect('/');
+    }
+    res.sendFile('views/profile/myMemes.html', {
+        root: `${__dirname}/../`
+    });
+});
+
 module.exports = router;

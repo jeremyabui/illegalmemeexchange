@@ -21,7 +21,7 @@ const index = (req, res) => {
 
 //Find Route
 const find = (req, res) => {
-    db.User.findOne({ userId: req.params._id }, (err, foundUser) => {
+    db.User.findById(req.params.userId, (err, foundUser) => {
         if (err) return sendErr();
 
         res.json({
