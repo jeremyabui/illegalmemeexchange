@@ -15,6 +15,10 @@ const UserSchema = new Schema({
         required: true,
     },
     tags: [String],
+    memes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Meme'
+    }],
 })
 
 const User = mongoose.model('User', UserSchema);
