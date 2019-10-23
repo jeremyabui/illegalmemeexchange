@@ -1,6 +1,7 @@
 console.log('Hi Jeremy');
 const form = document.querySelector('form');
-
+const userId = window.location.pathname.split('/')[2];
+console.log(userId);
 // const postMeme = (newMeme) => {
 //     document.getElementsByClassName('card').append(`
 //     <div class="card">
@@ -166,7 +167,25 @@ if (formIsValid) {
         if (res.status === 201) return window.location = `/profile/${res.data.id}`
         // May need to update window location on login
     })
-    .then(postMeme())
     .catch(error => console.log(error))
 }
 });
+
+
+$('.newMemeLink').on('click', () => {
+    // const userData = {};
+    // fetch('/newMeme', {
+    //     method: 'POST',
+    //     credentials: 'include',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(userData),
+    // })
+    // .then(dataStream => dataStream.json())
+    // .then(res => {
+    //     return window.location = `/newMeme/${res.data.id}`
+    // })
+    // .catch(error => console.log(error))
+    return window.location = `/newMeme/${userId}`
+})
