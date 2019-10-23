@@ -26,10 +26,17 @@ body {
     margin-left: 5px;
 }
 
+.nav-link {
+    padding-left: 2em;
+}
+
 /* Sidebar */
 .sidebar {
-    height: 100vh;
+    /* height: 100vh; */
     padding-right:0;
+    height: 100%;
+    position: fixed;
+
 }
 
 .sidebar-sticky ul:first-child {
@@ -79,4 +86,10 @@ body {
 .btn-primary {
     background-color: #555555;
     border: none;
+}
+
+
+/* Sidebar css */
+.wrapper {
+    align-items: stretch;
 }
