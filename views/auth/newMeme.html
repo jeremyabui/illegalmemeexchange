@@ -25,14 +25,7 @@
             <!-- <h1>Welcome To IME</h1> -->
     <nav class="navbar fixed-top flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Illegal Meme Exchange</a>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <button type="button" class="btn btn-primary">
-                        Log Out
-                    </button>
-                </li>
-            </ul>
-        </nav>
+    </nav>
 
     <!-- Sidebar -->
     <div class="container-fluid">
@@ -83,19 +76,19 @@
         <section class="container new-meme-form">
           <h1>New Meme</h1>
           <form id="newMeme">
-            <div>
+            <div class="form-group">
               <label for="title">Title</label>
-              <input type="text" id="title" name="title" />
+              <input class="form-control form-control-lg" type="text" id="title" name="title" placeholder="Title your meme"/>
             </div>
-            <div>
-              <label for="link">Link</label>
-              <input type="link" id="link" name="link" />
+            <div class="form-group">
+              <label for="link">Image Link</label>
+              <input class="form-control form-control-lg" type="link" id="link" name="link" placeholder="Left click the image and select 'copy image address', then paste it here"/>
             </div>
-            <div>
+            <div class="form-group">
               <label for="tags">Tags</label>
-              <input type="text" id="tags" name="tags" />
+              <input class="form-control form-control-lg" type="text" id="tags" name="tags" placeholder="Tag your image! Tags are broken up by a space"/>
             </div>
-            <input type="submit" value="Post a Meme!" />
+            <input type="submit" class="btn btn-primary" value="Post a Meme!" />
           </form>
         </section>
       </main>

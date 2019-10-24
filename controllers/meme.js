@@ -62,7 +62,8 @@ const create = (req, res) => {
 //Destroy
 
 const destroy = (req, res) => {
-    db.Meme.findByIdAndDelete(req.params.id, (err, deletedMeme)=> {
+    db.Meme.findByIdAndDelete(req.params.memeId, (err, deletedMeme)=> {
+        console.log(req)
         if (err) return sendErr(res);
 
         res.json({
