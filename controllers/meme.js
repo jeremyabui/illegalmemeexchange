@@ -20,9 +20,22 @@ const index = (req, res) => {
 };
 
 //Find
-const find = (req, res) => {
-    db.Meme.findOne({ title: req.params.title }, (err, foundMeme) => {
-        if (err) return sendErr();
+// const find = (req, res) => {
+//     db.Meme.findOne({ title: req.params.title }, (err, foundMeme) => {
+//         if (err) return sendErr();
+
+//         res.json({
+//             status: 200,
+//             data: foundMeme,
+//             requestedAt: new Date().toLocaleString(),
+//         });
+//     });
+// };
+
+//Find by ID
+const findById = (req, res) => {
+    db.Meme.findById(req.params.memeId, (err, foundMeme) => {
+        if (err) sendErr();
 
         res.json({
             status: 200,
@@ -62,7 +75,8 @@ const destroy = (req, res) => {
 
 module.exports = {
     index,
-    find,
+    // find,
+    findById,
     create,
     destroy,
 }

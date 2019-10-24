@@ -28,7 +28,7 @@ const postMeme = () => {
     fetch(`/api/v1/memes`, {
         method: 'GET', 
         header: {
-            'Content-Type': 'applicaion/json',
+            'Content-Type': 'application/json',
         }
     })
     .then(dataStream=> dataStream.json())
@@ -36,7 +36,7 @@ const postMeme = () => {
         const memeArray = res.data;
         console.log(memeArray)
         memeArray.forEach(function(meme) {
-            $('.cardSection').append(`
+            $('.cardSection').prepend(`
             <div class="card">
                 <div class="card-header bg-transparent">
                     <h2 class="memeTitle">${meme.title}</h2>
@@ -192,4 +192,22 @@ $('.newMemeLink').on('click', () => {
 
 $('.myMemes').on('click', () => {
     return window.location = `myMemes/${userId}`
+})
+
+const logoutSuccess = () => {
+    return window.location = `/`
+}
+
+const logoutError = () => {
+    console.log('logout failed')
+}
+
+$('.logout').on('click', () => {
+    $.ajax({
+        method: 'DELETE',
+        url: 'http://localhost:3000/api/v1/logout',
+        credentials: 'include',
+        success: logoutSuccess,
+        error: logoutError,
+    })
 })
