@@ -83,9 +83,41 @@ const update = (req, res) => {
     })
 }
 
+//Delete Update Route
+const removeUpdate = (req, res) => {
+    db.User.findById(req.params.userId, (err, foundUser) => {
+        if (err) console.log (err)
+        if (req.params.memeId) {
+            for(let i=0; i<foundUser.memes.length; i++){
+                if(foundUser.memes[i] == req.params.memeId){
+                    foundUser.memes.splice(i,1);
+                }
+            }
+        }
+
+        foundUser.save((err, updatedUser) => {
+            if (err) {
+                res.json({
+                    status: 400,
+                    message: 'Uh oh error',
+                    err,
+                    requestedAt: new Date().toLocaleString(),
+                });
+            }
+
+            res.json({
+                status: 200,
+                data: updatedUser,
+                requestedAt: new Date().toLocaleString(),
+            })
+        })
+    })
+}
+
 module.exports = {
     index,
     find,
     create,
     update,
+    removeUpdate,
 }

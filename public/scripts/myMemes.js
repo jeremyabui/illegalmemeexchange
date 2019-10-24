@@ -26,6 +26,46 @@ $('.logout').on('click', () => {
     })
 })
 
+//Delete Meme on User Update
+const deleteEntry = (res) => {
+    const memeId = res.data._id
+    updateUser(memeId);
+}
+
+const errDeleteEntry = () => {
+    console.log('Something went wrong, the meme was not deleted.')
+}
+
+const deleteMeme = (memeId) => {
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/v1/memes/${memeId}`,
+        success: deleteEntry,
+        error: errDeleteEntry,
+    })
+}
+
+const updateUserSuccess = (res) => {
+    console.log(res.data);
+}
+
+const updateError = () => {
+    console.log('failed to update user')
+}
+
+//User Update before Deleting Meme
+$('.cardSection').on('click', '.delete-btn', () => {
+    let memeId = $(event.target).parent().parent().attr('id');
+    console.log(memeId)
+    $.ajax({
+        method: 'PUT',
+        url: `/api/v1/users/${userId}/${memeId}`,
+        success: updateUserSuccess,
+        error: updateError,
+    })
+    console.log(memeId);
+})
+
 //Meme Posting to DOM
 const onError = () => {
     console.log('error')
@@ -35,14 +75,16 @@ const postMemes = (res) => {
     console.log(res)
     const meme = res.data;
     $('.cardSection').prepend(`
-    <div class="card">
+    <div class="card" id="${meme._id}">
         <div class="card-header bg-transparent">
             <h2 class="memeTitle">${meme.title}</h2>
         </div>
         <div class="card-body">
                 <img class="memeImg" src="${meme.link}">
         </div>
-        <div class="card-footer bg-transparent">Add like button</div>
+        <div class="card-footer bg-transparent">
+            <input type="button" class="btn btn-primary delete-btn" value="Delete"/>
+        </div>
     </div>
     `);
 };
