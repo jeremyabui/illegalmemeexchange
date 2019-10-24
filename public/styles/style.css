@@ -106,4 +106,9 @@ body {
     padding: 20px;
     border: 10px solid black;
   }
-  
+
+/* Meme Form Styling */
+
+.new-meme-form{
+    margin-top: 10vh;
+}

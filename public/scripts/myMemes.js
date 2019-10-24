@@ -2,10 +2,31 @@ console.log('memelyfe');
 const userId = window.location.pathname.split('/')[3];
 console.log(userId);
 
+//Home Page Nav Button
 $('.go-home').on('click', () => {
     return window.location = `/profile/${userId}`
 })
 
+//Log Out Button
+const logoutSuccess = () => {
+    return window.location = `/`
+}
+
+const logoutError = () => {
+    console.log('logout failed')
+}
+
+$('.logout').on('click', () => {
+    $.ajax({
+        method: 'DELETE',
+        url: 'http://localhost:3000/api/v1/logout',
+        credentials: 'include',
+        success: logoutSuccess,
+        error: logoutError,
+    })
+})
+
+//Meme Posting to DOM
 const onError = () => {
     console.log('error')
 }
