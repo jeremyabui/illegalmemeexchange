@@ -16,6 +16,7 @@ body {
     color: #000000;
     font-family: 'Volkhov', serif;
     font-size: 26px;
+    display: inline;
 }
 
 .navbar-nav {
@@ -32,27 +33,38 @@ body {
 
 /* Sidebar */
 .sidebar {
-    /* height: 100vh; */
+    position: relative;
     padding-right:0;
-    height: 100%;
-    position: fixed;
-
+    z-index: 10;
+    top: 0;
+    bottom: 0;
 }
 
-.sidebar-sticky ul:first-child {
-    margin-top: 10vh;
+.sidebar-sticky {
+    position: fixed;
+    top: 100px;
 }
 
 .nav-item:hover {
     background-color: #aaaaaa;
-    /* text-decoration: solid underline;
-    font-weight: 800; */
+}
+
+#toggleSidebar {
+    /* color: #000; */
+    /* background-color: #aaa; */
+    margin-left: 20px;
+}
+
+.navbar-toggler-icon {
+    color: #000;
 }
 
 /* Main Section */
 .welcomeMsg {
     margin-top: 10vh;
 }
+
+
 
 /* Card Styling */
 .cardSection {
@@ -88,11 +100,6 @@ body {
     border: none;
 }
 
-
-/* Sidebar css */
-.wrapper {
-    align-items: stretch;
-}
 
 /* Infinite scrolling */
 #infinite-list {
