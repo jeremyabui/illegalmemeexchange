@@ -300,3 +300,22 @@ $(window).scroll(function() {
         loadMore();
     }
 });
+
+
+
+// Sidebar event
+// $(document).ready(function () {
+
+//     $('#sidebarCollapse').on('click', function () {
+//         $('#sidebar').toggleClass('active');
+//     });
+
+// });
+
+$('#toggleSidebar').on('click', () => {
+    $('#sidebarNav').toggleClass('d-none');
+    $('#sidebarNav').toggleClass('d-block');
+    // $('#mainDiv').css('margin-left', '16%')
+    $('#mainDiv').toggleClass('push-left')
+
+})

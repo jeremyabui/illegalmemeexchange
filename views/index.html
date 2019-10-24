@@ -20,28 +20,19 @@
     <title>IME</title>
 </head>
 <body>
-    <!-- <h1>Welcome To IME</h1> -->
-    <nav class="navbar fixed-top flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Illegal Meme Exchange</a>
-            <!-- <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                        Login
-                    </button>
-                </li>
-                <li class="nav-item text-nowrap">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
-                        Signup
-                    </button>
-                </li>
-            </ul> -->
-        </nav>
+    <!-- Top Navbar -->
+    <nav class="navbar fixed-top p-0">
+        <button id="toggleSidebar">
+            <span class="navbar-toggler-icon">&#9776;</span>
+        </button>
+        <a class="navbar-brand" href="#">Illegal Meme Exchange</a>
+</nav>
 
-<div class="wrapper">   
+
      <!-- Sidebar -->
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar active">
+            <nav id="sidebarNav" class="col-2 d-none bg-light sidebar">
                 <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <!-- New sidebar -->
@@ -59,14 +50,13 @@
             </nav>
 
             <!-- Main Body -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+            <main id="mainDiv" role="main" class="container">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                   <h1 class="welcomeMsg">Welcome to IME</h1>
                 </div>
           
                 <!-- NOTE Template Card -->
                 <section class="cardSection">
-
                     <!-- <ul id="infinite-list">
                         <div class="card">
                             <div class="card-header bg-transparent">
@@ -76,15 +66,11 @@
                                 </div>
                             <div class="card-footer bg-transparent">Add like button</div>
                         </div>
-
                     </ul> -->
                 </section>
               </main>
         </div>
     </div>
-
-</div>
-<!-- Wrapper -->
 
 
     <!-- Signup Modal -->
@@ -98,30 +84,6 @@
               </button>
             </div>
             <div class="modal-body">
-                <!-- Form -->
-                <!-- <form id="signupForm">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id='signupUsername' name="username"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id='signupEmail' name="email"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id='signupPassword' name="password"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password2">Confirm Password</label>
-                        <input type="password" id='signupPassword2' name="password2"/>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
-                        <input type='submit' value="Signup"/>
-                    </div>
-                </form> -->
-
                 <!-- Bootstrap Form -->
                 <form id="signupForm">
                       <div class="">
