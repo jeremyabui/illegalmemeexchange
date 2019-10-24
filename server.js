@@ -60,15 +60,25 @@ app.use('/api/v1', routes.api);
 //     db.Meme.remove({}, (err, removedMemes) => {
 //         if(err){ 
 //             console.log(err);
-//             monggose.connection.close();
 //         } else {
 //             console.log('success', removedMemes);
-//             mongoose.connection.close();
 //         }
 //     })
 // }
 
 // removeAllMemes();
+
+// const removeAllUsers = () => {
+//     db.User.remove({}, (err, removedUsers) => {
+//         if(err){ 
+//             console.log(err);
+//         } else {
+//             console.log('success', removedUsers);
+//         }
+//     })
+// }
+
+// removeAllUsers();
 
 //------------------------START SERVER-------------------------
 
