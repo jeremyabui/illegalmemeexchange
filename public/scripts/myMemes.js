@@ -2,6 +2,10 @@ console.log('memelyfe');
 const userId = window.location.pathname.split('/')[3];
 console.log(userId);
 
+$('.go-home').on('click', () => {
+    return window.location = `/profile/${userId}`
+})
+
 const onError = () => {
     console.log('error')
 }
@@ -44,3 +48,4 @@ const findMyMemes = () => {
 }
 
 findMyMemes(); 
+
