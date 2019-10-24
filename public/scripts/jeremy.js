@@ -24,35 +24,35 @@ console.log(userId);
 //     console.log(body)
 // }
 
-const postMeme = () => { 
-    fetch(`/api/v1/memes`, {
-        method: 'GET', 
-        header: {
-            'Content-Type': 'application/json',
-        }
-    })
-    .then(dataStream=> dataStream.json())
-    .then(res => {
-        const memeArray = res.data;
-        console.log(memeArray)
-        memeArray.forEach(function(meme) {
-            $('.cardSection').prepend(`
-            <div class="card">
-                <div class="card-header bg-transparent">
-                    <h2 class="memeTitle">${meme.title}</h2>
-                </div>
-                <div class="card-body">
-                        <img class="memeImg" src="${meme.link}">
-                </div>
-                <div class="card-footer bg-transparent">Add like button</div>
-            </div>
-            `);
-        });
-    })
-    .catch(error => console.log(error))
-}
+// const postMeme = () => { 
+//     fetch(`/api/v1/memes`, {
+//         method: 'GET', 
+//         header: {
+//             'Content-Type': 'application/json',
+//         }
+//     })
+//     .then(dataStream=> dataStream.json())
+//     .then(res => {
+//         const memeArray = res.data;
+//         console.log(memeArray)
+//         memeArray.forEach(function(meme) {
+//             $('.cardSection').prepend(`
+//             <div class="card">
+//                 <div class="card-header bg-transparent">
+//                     <h2 class="memeTitle">${meme.title}</h2>
+//                 </div>
+//                 <div class="card-body">
+//                         <img class="memeImg" src="${meme.link}">
+//                 </div>
+//                 <div class="card-footer bg-transparent">Add like button</div>
+//             </div>
+//             `);
+//         });
+//     })
+//     .catch(error => console.log(error))
+// }
 
-postMeme();
+// postMeme();
 
 
 
@@ -224,3 +224,79 @@ if (formIsValid) {
 $('.newMemeLink').on('click', () => {
     return window.location = `/newMeme/${userId}`
 })
+
+
+// Infinite scrolling
+// https://codepen.io/wernight/pen/YyvNoW
+let scrollCounter= 0;
+const loadMore = function() {
+    fetch(`/api/v1/memes`, {
+        method: 'GET', 
+        header: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(dataStream=> dataStream.json())
+    .then(res => {
+        const memeArray = res.data;
+        console.log(memeArray);
+        let scrollIndex = memeArray.length-1;
+        
+            for (let i = 0; i < 10; i++) {
+                scrollIndex = scrollIndex - scrollCounter;
+                console.log(scrollIndex);
+                $('.cardSection').append(`
+                <div class="card">
+                    <div class="card-header bg-transparent">
+                        <h2 class="memeTitle">${memeArray[scrollIndex].title}</h2>
+                    </div>
+                    <div class="card-body">
+                            <img class="memeImg" src="${memeArray[scrollIndex].link}">
+                    </div>
+                    <div class="card-footer bg-transparent">Add like button</div>
+                </div>
+                `);
+                scrollCounter++;
+            };
+    })
+    .catch(error => console.log(error))
+}
+
+// Working load more with append
+/* const loadMore = function() {
+    fetch(`/api/v1/memes`, {
+        method: 'GET', 
+        header: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(dataStream=> dataStream.json())
+    .then(res => {
+        const memeArray = res.data;
+        console.log(memeArray)
+            for (let i = 0; i < 10; i++) {
+                // console.log(index);
+                $('.cardSection').append(`
+                <div class="card">
+                    <div class="card-header bg-transparent">
+                        <h2 class="memeTitle">${memeArray[index].title}</h2>
+                    </div>
+                    <div class="card-body">
+                            <img class="memeImg" src="${memeArray[index].link}">
+                    </div>
+                    <div class="card-footer bg-transparent">Add like button</div>
+                </div>
+                `);
+                index++;
+            };
+    })
+    .catch(error => console.log(error))
+} */
+loadMore();
+
+$(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+        // console.log('hit rock bottom')
+        loadMore();
+    }
+});
