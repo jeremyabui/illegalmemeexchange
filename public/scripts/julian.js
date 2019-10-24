@@ -193,3 +193,21 @@ $('.newMemeLink').on('click', () => {
 $('.myMemes').on('click', () => {
     return window.location = `myMemes/${userId}`
 })
+
+const logoutSuccess = () => {
+    return window.location = `/`
+}
+
+const logoutError = () => {
+    console.log('logout failed')
+}
+
+$('.logout').on('click', () => {
+    $.ajax({
+        method: 'DELETE',
+        url: 'http://localhost:3000/api/v1/logout',
+        credentials: 'include',
+        success: logoutSuccess,
+        error: logoutError,
+    })
+})
