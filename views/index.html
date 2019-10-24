@@ -37,49 +37,13 @@
             </ul> -->
         </nav>
 
-    <!-- Sidebar -->
+<div class="wrapper">   
+     <!-- Sidebar -->
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar active">
                 <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    <!-- NOTE Update icons with placeholders -->
-                    <!-- <li class="nav-item">
-                    <a class="nav-link active" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        Home <span class="sr-only">(current)</span>
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                        Signup
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                        Login
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        Placeholder
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                        Placeholder
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                        Placeholder
-                    </a>
-                    </li> -->
                     <!-- New sidebar -->
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Home</a>
@@ -102,18 +66,26 @@
           
                 <!-- NOTE Template Card -->
                 <section class="cardSection">
-                    <div class="card">
-                        <div class="card-header bg-transparent">
-                            <h2 class="memeTitle">Meme Title</h2></div>
-                            <div class="card-body">
-                                    <img class="memeImg" src="https://i.imgur.com/BKsGPGJ.gif">
-                            </div>
-                        <div class="card-footer bg-transparent">Add like button</div>
-                    </div>
+
+                    <!-- <ul id="infinite-list">
+                        <div class="card">
+                            <div class="card-header bg-transparent">
+                                <h2 class="memeTitle">Meme Title</h2></div>
+                                <div class="card-body">
+                                        <img class="memeImg" src="https://i.imgur.com/BKsGPGJ.gif">
+                                </div>
+                            <div class="card-footer bg-transparent">Add like button</div>
+                        </div>
+
+                    </ul> -->
                 </section>
               </main>
         </div>
     </div>
+
+</div>
+<!-- Wrapper -->
+
 
     <!-- Signup Modal -->
     <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
@@ -127,7 +99,7 @@
             </div>
             <div class="modal-body">
                 <!-- Form -->
-                <form id="signupForm">
+                <!-- <form id="signupForm">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" id='signupUsername' name="username"/>
@@ -144,6 +116,61 @@
                         <label for="password2">Confirm Password</label>
                         <input type="password" id='signupPassword2' name="password2"/>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
+                        <input type='submit' value="Signup"/>
+                    </div>
+                </form> -->
+
+                <!-- Bootstrap Form -->
+                <form id="signupForm">
+                      <div class="">
+                        <label for="validationServerUsername">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" name ="username" class="form-control" id="signupUsername" placeholder="Username" aria-describedby="inputGroupPrepend3">
+                            <div class="invalid-feedback">
+                            Please choose a username.
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                        </div>
+                        <label for="validationServerEmail">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="email" name="email" class="form-control" id="signupEmail" placeholder="youremail@gmail.com" aria-describedby="inputGroupPrepend3">
+                            <div class="invalid-feedback">
+                            Please enter your email.
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="">
+                            <label for="validationServerPassword">Password</label>
+                            <input type="password" name="password" class="form-control" id="signupPassword" placeholder="Password">
+                            <div class="invalid-feedback password-feedback">
+                                Password must be at least 4 characters
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                          </div>
+                          <div class="">
+                            <label for="validationServerConfirmPassword">Confirm Password</label>
+                            <input type="password"  name="password2" class="form-control" id="signupPassword2" placeholder="Please re-enter your password">
+                            <div class="invalid-feedback password-feedback">
+                                Password must be at least 4 characters
+                            </div>
+                            <div class="valid-feedback">
+                                    Looks good!
+                            </div>
+                          </div>
+                      </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>
                         <input type='submit' value="Signup"/>
@@ -167,12 +194,28 @@
                 <div class="modal-body">
                     <form id="loginForm">
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id='loginEmail' name="email"/>
+                                <label for="validationServerEmail">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    </div>
+                                    <input type="email" name="email" class="form-control" id="signupEmail" placeholder="youremail@gmail.com" aria-describedby="inputGroupPrepend3">
+                                    <div class="invalid-feedback">
+                                    Please enter your email.
+                                    </div>
+                                    <div class="valid-feedback">
+                                            Looks good!
+                                    </div>
+                                </div>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id='loginPassword' name="password"/>
+                                <label for="validationServerPassword">Password</label>
+                                <input type="password" name="password" class="form-control" id="signupPassword" placeholder="Password">
+                                <div class="invalid-feedback">
+                                    Password must be at least 4 characters
+                                </div>
+                                <div class="valid-feedback">
+                                        Looks good!
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" value="dummyValue">Close</button>

@@ -1,6 +1,6 @@
 const db = require('../models');
 
-const sendErr = () => {
+const sendErr = (res) => {
     res.status(500).json({
         status: 500,
         error: [{message: 'Something went wrong. Please try again'}],
@@ -10,7 +10,7 @@ const sendErr = () => {
 //Index
 const index = (req, res) => {
     db.Meme.find({}, (err, allMemes) => {
-        if (err) return sendErr();
+        if (err) return sendErr(res);
         res.json({
             status: 200,
             data: allMemes,
@@ -20,9 +20,22 @@ const index = (req, res) => {
 };
 
 //Find
-const find = (req, res) => {
-    db.Meme.findOne({ title: req.params.title }, (err, foundMeme) => {
-        if (err) return sendErr();
+// const find = (req, res) => {
+//     db.Meme.findOne({ title: req.params.title }, (err, foundMeme) => {
+//         if (err) return sendErr();
+
+//         res.json({
+//             status: 200,
+//             data: foundMeme,
+//             requestedAt: new Date().toLocaleString(),
+//         });
+//     });
+// };
+
+//Find by ID
+const findById = (req, res) => {
+    db.Meme.findById(req.params.memeId, (err, foundMeme) => {
+        if (err) sendErr(res);
 
         res.json({
             status: 200,
@@ -36,7 +49,7 @@ const find = (req, res) => {
 
 const create = (req, res) => {
     db.Meme.create(req.body, (err, createdMeme) => {
-        if (err) return sendErr();
+        if (err) return sendErr(res);
 
         res.json({
             status: 201,
@@ -50,7 +63,7 @@ const create = (req, res) => {
 
 const destroy = (req, res) => {
     db.Meme.findByIdAndDelete(req.params.id, (err, deletedMeme)=> {
-        if (err) return sendErr();
+        if (err) return sendErr(res);
 
         res.json({
             status: 200,
@@ -62,7 +75,8 @@ const destroy = (req, res) => {
 
 module.exports = {
     index,
-    find,
+    // find,
+    findById,
     create,
     destroy,
 }
