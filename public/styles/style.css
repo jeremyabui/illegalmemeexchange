@@ -93,3 +93,9 @@ body {
 .wrapper {
     align-items: stretch;
 }
+
+/* Meme Form Styling */
+
+.new-meme-form{
+    margin-top: 10vh;
+}

@@ -1,6 +1,6 @@
 const db = require('../models');
 
-const sendErr = () => {
+const sendErr = (res) => {
     res.status(500).json({
         status: 500,
         error: [{message: 'Something went wrong. Please try again'}],
@@ -10,7 +10,7 @@ const sendErr = () => {
 //Index
 const index = (req, res) => {
     db.User.find({}, (err, allUsers) => {
-        if (err) return sendErr();
+        if (err) return sendErr(res);
         res.json({
             status: 200,
             data: allUsers,
@@ -22,7 +22,7 @@ const index = (req, res) => {
 //Find Route
 const find = (req, res) => {
     db.User.findById(req.params.userId, (err, foundUser) => {
-        if (err) return sendErr();
+        if (err) return sendErr(res);
 
         res.json({
             status: 200,
@@ -35,7 +35,7 @@ const find = (req, res) => {
 //Create Route
 const create = (req, res) => {
     db.User.create(req.body, (err, createdUser) => {
-        if (err) return sendErr();
+        if (err) return sendErr(res);
 
         res.json({
             status: 201,
