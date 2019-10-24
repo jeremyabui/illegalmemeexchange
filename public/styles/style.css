@@ -93,3 +93,17 @@ body {
 .wrapper {
     align-items: stretch;
 }
+
+/* Infinite scrolling */
+#infinite-list {
+    /* We need to limit the height and show a scrollbar */
+    /* width: 200px;
+    height: 300px; */
+    overflow: auto;
+  
+    /* Optional, only to check that it works with margin/padding */
+    margin: 30px;
+    padding: 20px;
+    border: 10px solid black;
+  }
+  
