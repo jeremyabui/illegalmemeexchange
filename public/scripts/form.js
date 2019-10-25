@@ -34,7 +34,7 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
         }
     });
     // Signup form submission
-    if (form.id === 'signupForm' && formIsValid) {
+    if (formIsValid) {
         fetch('/api/v1/signup', {
             method: 'POST',
             headers: {
@@ -64,11 +64,13 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
     [...document.getElementById('loginForm').elements].forEach(input =>  {
         if (input.type !== 'submit' && input.value === '') {
             formIsValid = false;
+            $('.login-email-feedback').text(`Please enter your email`);
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
 
         } else if (input.type === 'password' && input.value.length < 4) {
             formIsValid = false;
+            $('.login-password-feedback').text(`Password must be at least 4 characters`);
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
         
@@ -93,7 +95,12 @@ if (formIsValid) {
     .then(dataStream => dataStream.json())
     .then(res => {
         console.log('login successful')
-        if (res.status === 201) return window.location = `/profile/${res.data.id}`
+        if(res.status=== 400) {
+            $('.login-password-feedback').text(`Something went wrong. Please try again`);
+            $('.login-email-feedback').text(`Something went wrong. Please try again`);
+            $('.form-control').removeClass('is-valid');
+            $('.form-control').addClass('is-invalid');
+        } else if (res.status === 201) return window.location = `/profile/${res.data.id}`
     })
     .catch(error => console.log('Error'))
 }
