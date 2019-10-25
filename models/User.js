@@ -2,10 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    username: String,
-    email: String,
-    password: String,
+    username: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
     tags: [String],
+    memes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Meme'
+    }],
 })
 
 const User = mongoose.model('User', UserSchema);
