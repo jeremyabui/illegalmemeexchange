@@ -44,7 +44,7 @@ const deleteMeme = (memeId) => {
         error: errDeleteEntry,
     })
 }
-//NOTE res.data refers to the User object, hoist memeId to global variable and update it on click
+
 const updateUserSuccess = (res) => {
     console.log(`deleted user---->${res.data}`)
 }
