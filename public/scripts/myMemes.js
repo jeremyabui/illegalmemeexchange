@@ -1,6 +1,5 @@
 console.log('memelyfe');
 const userId = window.location.pathname.split('/')[3];
-console.log(userId);
 
 //Home Page Nav Button
 $('.go-home').on('click', () => {
@@ -19,7 +18,7 @@ const logoutError = () => {
 $('.logout').on('click', () => {
     $.ajax({
         method: 'DELETE',
-        url: 'http://localhost:3000/api/v1/logout',
+        url: '/api/v1/logout',
         credentials: 'include',
         success: logoutSuccess,
         error: logoutError,
@@ -28,7 +27,6 @@ $('.logout').on('click', () => {
 
 //Delete Meme
 const deleteEntry = (res) => {
-    console.log(`deleted meme --->${res.data}`)
     findMyMemes();
 }
 
@@ -37,7 +35,6 @@ const errDeleteEntry = () => {
 }
 
 const deleteMeme = (memeId) => {
-    console.log(memeId)
     $.ajax({
         method: 'DELETE',
         url: `/api/v1/memes/${memeId}`,
@@ -47,7 +44,7 @@ const deleteMeme = (memeId) => {
 }
 
 const updateUserSuccess = (res) => {
-    console.log(`deleted user---->${res.data}`)
+    console.log(`deleted user`)
 }
 
 const updateError = () => {
@@ -65,8 +62,7 @@ updateUser = (memeId) => {
 }
 //User Update and Delete Meme
 $('.cardSection').on('click', '.delete-btn', () => {
-    let memeId = $(event.target).parent().parent().attr('id');
-    console.log(memeId);
+    let memeId = $(event.target).parent().parent().attr('id');;
     updateUser(memeId);
     deleteMeme(memeId);
 })
@@ -77,7 +73,6 @@ const onError = () => {
 }
 
 const postMemes = (res) => {
-    console.log(res)
     const meme = res.data;
     $('.cardSection').prepend(`
     <div class="card" id="${meme._id}">
@@ -95,12 +90,11 @@ const postMemes = (res) => {
 };
 
 const onSuccess = (res) => {
-    console.log(res.data.memes)
     $('.cardSection').empty();
     res.data.memes.forEach((meme) => {
         $.ajax({
             method: 'GET',
-            url: `http://localhost:3000/api/v1/memes/${meme}`,
+            url: `/api/v1/memes/${meme}`,
             success: postMemes,
             error: onError,
         })
@@ -110,7 +104,7 @@ const onSuccess = (res) => {
 const findMyMemes = () => { 
     $.ajax({
         method: 'GET',
-        url: `http://localhost:3000/api/v1/users/profile/${userId}`,
+        url: `/api/v1/users/profile/${userId}`,
         success: onSuccess,
         error: onError,
     })
