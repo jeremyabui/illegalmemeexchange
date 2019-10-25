@@ -5,9 +5,6 @@ const ctrl = require('../controllers');
 //Index Route
 router.get('/', ctrl.meme.index);
 
-//Find Route
-// router.get('/:title', ctrl.meme.find);
-
 //Find by ID Route
 router.get('/:memeId', ctrl.meme.findById)
 

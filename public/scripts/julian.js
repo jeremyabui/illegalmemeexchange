@@ -2,28 +2,39 @@ console.log('memes are life');
 const form = document.querySelector('form');
 const userId = window.location.pathname.split('/')[2];
 console.log(userId);
-// const postMeme = (newMeme) => {
-//     document.getElementsByClassName('card').append(`
-//     <div class="card">
-//         <div class="card-header bg-transparent">
-//             <h2 class="${newMeme.title}">Meme Title</h2>
-//         </div>
-//         <div class="card-body">
-//                 <img src="${newMeme.link}">
-//         </div>
-//         <div class="card-footer bg-transparent">Add like button</div>
-//     </div>
-//     `)
-// }
 
-// const postMeme = () => {
-//     fetch(`http://localhost:3000/api/v1/memes`, {
-//         method: 'GET',
-//         body: JSON.stringify(data),
-//     })
-//     console.log(body)
-// }
+//--------------------Nav Functions--------------------------
+//Home Page Nav Button
+$('.go-home').on('click', () => {
+    return window.location = `/profile/${userId}`
+})
+//New Meme Nav Button
+$('.newMemeLink').on('click', () => {
+    return window.location = `/newMeme/${userId}`
+})
+//My Memes Nav Button
+$('.myMemes').on('click', () => {
+    return window.location = `myMemes/${userId}`
+})
+//Log Out Button
+const logoutSuccess = () => {
+    return window.location = `/`
+}
+const logoutError = () => {
+    console.log('logout failed')
+}
+$('.logout').on('click', () => {
+    $.ajax({
+        method: 'DELETE',
+        url: 'http://localhost:3000/api/v1/logout',
+        credentials: 'include',
+        success: logoutSuccess,
+        error: logoutError,
+    })
+})
+//-------------------------------------------------------------
 
+//Meme Posting Function
 const postMeme = () => { 
     fetch(`/api/v1/memes`, {
         method: 'GET', 
@@ -54,12 +65,6 @@ const postMeme = () => {
 
 postMeme();
 
-
-
-
-
-
-
 // ------------ Form Submission ----------- //
 // Signup form submission
 document.getElementById('signupForm') && document.getElementById('signupForm').addEventListener('submit', (event) => {
@@ -89,7 +94,6 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             </div>
         `);
         }
-        // console.log('first statement')
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
@@ -141,13 +145,13 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
             </div>
         `);
         }
-        // console.log('first statement')
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
         console.log(userData)
     });
     console.log(formIsValid);
+
 // Handle Login
 if (formIsValid) {
     console.log('login submit button');
@@ -165,49 +169,7 @@ if (formIsValid) {
         console.log(res);
         console.log('login successful')
         if (res.status === 201) return window.location = `/profile/${res.data.id}`
-        // May need to update window location on login
     })
     .catch(error => console.log(error))
 }
 });
-
-
-$('.newMemeLink').on('click', () => {
-    // const userData = {};
-    // fetch('/newMeme', {
-    //     method: 'POST',
-    //     credentials: 'include',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(userData),
-    // })
-    // .then(dataStream => dataStream.json())
-    // .then(res => {
-    //     return window.location = `/newMeme/${res.data.id}`
-    // })
-    // .catch(error => console.log(error))
-    return window.location = `/newMeme/${userId}`
-})
-
-$('.myMemes').on('click', () => {
-    return window.location = `myMemes/${userId}`
-})
-
-const logoutSuccess = () => {
-    return window.location = `/`
-}
-
-const logoutError = () => {
-    console.log('logout failed')
-}
-
-$('.logout').on('click', () => {
-    $.ajax({
-        method: 'DELETE',
-        url: 'http://localhost:3000/api/v1/logout',
-        credentials: 'include',
-        success: logoutSuccess,
-        error: logoutError,
-    })
-})
