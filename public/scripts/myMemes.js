@@ -26,9 +26,10 @@ $('.logout').on('click', () => {
     })
 })
 
-//Delete Meme on User Update
+//Delete Meme
 const deleteEntry = (res) => {
     console.log(`deleted meme --->${res.data}`)
+    findMyMemes();
 }
 
 const errDeleteEntry = () => {
@@ -62,7 +63,7 @@ updateUser = (memeId) => {
         error: updateError,
     })
 }
-//User Update before Deleting Meme
+//User Update and Delete Meme
 $('.cardSection').on('click', '.delete-btn', () => {
     let memeId = $(event.target).parent().parent().attr('id');
     console.log(memeId);
@@ -95,6 +96,7 @@ const postMemes = (res) => {
 
 const onSuccess = (res) => {
     console.log(res.data.memes)
+    $('.cardSection').empty();
     res.data.memes.forEach((meme) => {
         $.ajax({
             method: 'GET',
