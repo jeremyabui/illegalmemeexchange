@@ -26,7 +26,6 @@ const loadMore = function() {
                     <div class="card-body">
                             <img class="memeImg" src="${memeArray[scrollIndex].link}">
                     </div>
-                    <div class="card-footer bg-transparent">Add like button</div>
                 </div>
                 `);
                 scrollCounter++;
