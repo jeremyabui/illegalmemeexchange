@@ -120,11 +120,3 @@ body {
     margin-left: 10%;
     height: 100vh;
 }
-
-.lockSidebarHeight {
-    height: 100vh;
-}
-
-#newMeme .form-group .form-control-lg {
-    width: 90%;
-}
