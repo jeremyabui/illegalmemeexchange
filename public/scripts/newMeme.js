@@ -1,6 +1,37 @@
 const userId = window.location.pathname.split('/')[2];
 let memeId = "";
 
+//--------------------Nav Functions--------------------------
+//Home Page Nav Button
+$('.go-home').on('click', () => {
+    return window.location = `/profile/${userId}`
+})
+//New Meme Nav Button
+$('.newMemeLink').on('click', () => {
+    return window.location = `/newMeme/${userId}`
+})
+//My Memes Nav Button
+$('.myMemes').on('click', () => {
+    return window.location = `myMemes/${userId}`
+})
+//Log Out Button
+const logoutSuccess = () => {
+    return window.location = `/`
+}
+const logoutError = () => {
+    console.log('logout failed')
+}
+$('.logout').on('click', () => {
+    $.ajax({
+        method: 'DELETE',
+        url: '/api/v1/logout',
+        credentials: 'include',
+        success: logoutSuccess,
+        error: logoutError,
+    })
+})
+//-------------------------------------------------------------
+
 const onSuccess = (res) => {
     memeId = res.data._id;
     updateOwner();
