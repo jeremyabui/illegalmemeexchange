@@ -17,4 +17,34 @@ router.get('/signup', (req, res) => {
     });
 });
 
+//GET newMeme
+router.get(`/newMeme/:userId`, (req, res) => {
+    if (!req.session.currentUser) {
+        return res.redirect('/');
+    }
+    res.sendFile('views/auth/newMeme.html', {
+        root: `${__dirname}/../`
+    });
+});
+
+//GET Profile
+router.get('/profile/:userId', (req, res) => {
+    if (!req.session.currentUser) {
+        return res.redirect('/');
+    }
+    res.sendFile('views/profile/userPage.html', {
+        root: `${__dirname}/../`
+    });
+});
+
+//GET myMemes
+router.get('/myMemes/:userId', (req, res) => {
+    if (!req.session.currentUser) {
+        return res.redirect('/');
+    }
+    res.sendFile('views/profile/myMemes.html', {
+        root: `${__dirname}/../`
+    });
+});
+
 module.exports = router;

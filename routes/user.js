@@ -11,7 +11,11 @@ router.get('/profile/:userId', ctrl.user.find);
 //Create Route
 router.post('/', ctrl.user.create);
 
+//Update Route
+router.put('/:userId', ctrl.user.update)
 
+//Remove Update Route
+router.put('/:userId/:memeId', ctrl.user.removeUpdate)
 
 //Export
 module.exports = router;

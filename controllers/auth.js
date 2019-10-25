@@ -59,7 +59,7 @@ const createSession = (req, res) => {
                 req.session.currentUser = foundUser._id;
                 return res.status(201).json({
                     status: 201,
-                    data: { id: foundUser._id}
+                    data: { id: foundUser._id},
                 });
             } else {
                 return res.status(400).json({
@@ -99,11 +99,24 @@ const showProfile = (req, res) => {
     });
 }
 
+const destroySession = (req, res) => {
+    req.session.destroy(err => {
+        if(err) return res.status(500).json({
+            status: 500,
+            error: [{message: 'Something went wrong. Please try again'}],
+        });
 
+        res.status(200).json({
+            status: 200,
+            message: 'Success',
+        });
+    });
+}
 
 module.exports = {
     createUser,
     createSession,
     verifyAuth,
     showProfile,
+    destroySession,
 }
