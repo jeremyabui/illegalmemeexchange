@@ -7,11 +7,11 @@ let scrollCounter= 0;
 const loadMore = function() {
     fetch(`/api/v1/memes`, {
         method: 'GET', 
-        header: {
+        headers: {
             'Content-Type': 'application/json',
         }
     })
-    .then(dataStream=> dataStream.json())
+    .then(dataStream => dataStream.json())
     .then(res => {
         const memeArray = res.data;
         let scrollIndex = memeArray.length-1;
