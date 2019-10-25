@@ -52,7 +52,7 @@ const postMeme = () => {
                 <div class="card-body">
                         <img class="memeImg" src="${meme.link}">
                 </div>
-                <div class="card-footer bg-transparent">Add like button</div>
+                <div class="card-footer bg-transparent">${meme.tags.val()}</div>
             </div>
             `);
         });
