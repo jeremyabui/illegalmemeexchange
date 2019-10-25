@@ -28,8 +28,7 @@ $('.logout').on('click', () => {
 
 //Delete Meme on User Update
 const deleteEntry = (res) => {
-    const memeId = res.data._id
-    updateUser(memeId);
+    console.log(`deleted meme --->${res.data}`)
 }
 
 const errDeleteEntry = () => {
@@ -37,6 +36,7 @@ const errDeleteEntry = () => {
 }
 
 const deleteMeme = (memeId) => {
+    console.log(memeId)
     $.ajax({
         method: 'DELETE',
         url: `/api/v1/memes/${memeId}`,
@@ -44,26 +44,30 @@ const deleteMeme = (memeId) => {
         error: errDeleteEntry,
     })
 }
-
+//NOTE res.data refers to the User object, hoist memeId to global variable and update it on click
 const updateUserSuccess = (res) => {
-    console.log(res.data);
+    console.log(`deleted user---->${res.data}`)
 }
 
 const updateError = () => {
     console.log('failed to update user')
 }
 
-//User Update before Deleting Meme
-$('.cardSection').on('click', '.delete-btn', () => {
-    let memeId = $(event.target).parent().parent().attr('id');
-    console.log(memeId)
+
+updateUser = (memeId) => {
     $.ajax({
         method: 'PUT',
         url: `/api/v1/users/${userId}/${memeId}`,
         success: updateUserSuccess,
         error: updateError,
     })
+}
+//User Update before Deleting Meme
+$('.cardSection').on('click', '.delete-btn', () => {
+    let memeId = $(event.target).parent().parent().attr('id');
     console.log(memeId);
+    updateUser(memeId);
+    deleteMeme(memeId);
 })
 
 //Meme Posting to DOM
