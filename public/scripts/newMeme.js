@@ -12,7 +12,7 @@ $('.newMemeLink').on('click', () => {
 })
 //My Memes Nav Button
 $('.myMemes').on('click', () => {
-    return window.location = `myMemes/${userId}`
+    return window.location = `/myMemes/${userId}`
 })
 //Log Out Button
 const logoutSuccess = () => {

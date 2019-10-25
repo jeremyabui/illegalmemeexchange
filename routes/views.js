@@ -38,7 +38,7 @@ router.get('/profile/:userId', (req, res) => {
 });
 
 //GET myMemes
-router.get('/profile/myMemes/:userId', (req, res) => {
+router.get('/myMemes/:userId', (req, res) => {
     if (!req.session.currentUser) {
         return res.redirect('/');
     }

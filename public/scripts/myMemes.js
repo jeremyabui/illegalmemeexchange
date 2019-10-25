@@ -1,4 +1,4 @@
-const userId = window.location.pathname.split('/')[3];
+const userId = window.location.pathname.split('/')[2];
 
 // Toggle Sidebar
 $('#toggleSidebar').on('click', () => {
@@ -6,20 +6,26 @@ $('#toggleSidebar').on('click', () => {
     $('#sidebarNav').toggleClass('d-block');
 })
 
+//--------------------Nav Functions--------------------------
 //Home Page Nav Button
 $('.go-home').on('click', () => {
     return window.location = `/profile/${userId}`
 })
-
+//New Meme Nav Button
+$('.newMemeLink').on('click', () => {
+    return window.location = `/newMeme/${userId}`
+})
+//My Memes Nav Button
+$('.myMemes').on('click', () => {
+    return window.location = `/myMemes/${userId}`
+})
 //Log Out Button
 const logoutSuccess = () => {
     return window.location = `/`
 }
-
 const logoutError = () => {
     console.log('logout failed')
 }
-
 $('.logout').on('click', () => {
     $.ajax({
         method: 'DELETE',
@@ -29,6 +35,7 @@ $('.logout').on('click', () => {
         error: logoutError,
     })
 })
+//-------------------------------------------------------------
 
 //Delete Meme
 const deleteEntry = (res) => {
