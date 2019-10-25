@@ -1,4 +1,3 @@
-console.log('new meme form')
 const userId = window.location.pathname.split('/')[2];
 let memeId = "";
 
@@ -8,7 +7,6 @@ const onSuccess = (res) => {
 };
 
 const someSuccess = () => {
-    console.log('get to some success')
     return window.location = `/profile/${userId}`
 }
 
@@ -19,7 +17,7 @@ const onError = () => {
 const newMeme = () => {
     $.ajax({
         method: 'POST',
-        url: 'http://localhost:3000/api/v1/memes',
+        url: '/api/v1/memes',
         data: {
             title: $('#title').val(),
             link: $('#link').val(),
@@ -33,7 +31,7 @@ const newMeme = () => {
 const updateOwner = () => {
     $.ajax({
         method: 'PUT',
-        url: `http://localhost:3000/api/v1/users/${userId}`,
+        url: `/api/v1/users/${userId}`,
         data: {
             memes: [memeId]
         },

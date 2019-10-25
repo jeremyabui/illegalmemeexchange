@@ -1,4 +1,3 @@
-console.log('memelyfe');
 const userId = window.location.pathname.split('/')[3];
 
 //Home Page Nav Button

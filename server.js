@@ -54,32 +54,6 @@ app.use('/api/v1/memes', routes.meme);
 //SECTION Auth Routes
 app.use('/api/v1', routes.api);
 
-//Delete Route ============FOR DEBUGGING ONLY================
-
-// const removeAllMemes = () => {
-//     db.Meme.remove({}, (err, removedMemes) => {
-//         if(err){ 
-//             console.log(err);
-//         } else {
-//             console.log('success', removedMemes);
-//         }
-//     })
-// }
-
-// removeAllMemes();
-
-// const removeAllUsers = () => {
-//     db.User.remove({}, (err, removedUsers) => {
-//         if(err){ 
-//             console.log(err);
-//         } else {
-//             console.log('success', removedUsers);
-//         }
-//     })
-// }
-
-// removeAllUsers();
-
 //------------------------START SERVER-------------------------
 
 app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}/`));

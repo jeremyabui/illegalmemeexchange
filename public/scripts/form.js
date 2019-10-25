@@ -1,43 +1,27 @@
 // ------------ Form Submission ----------- //
 // Signup form submission
 document.getElementById('signupForm') && document.getElementById('signupForm').addEventListener('submit', (event) => {
-    console.log('click')
     let formIsValid = true;
     const userData = {};
     event.preventDefault();
 
     [...document.getElementById('signupForm').elements].forEach(input =>  {
         if (input.type !== 'submit' && input.value === '') {
-            console.log('changing form to false');
-            console.log(`${input.type} and value is ${input.value}`);
             formIsValid = false;
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
-        //     input.insertAdjacentHTML('afterend', `
-        //     <div class='alert ${input.id}-message'>
-        //       Please enter your ${input.name}
-        //     </div>
-        // `);
 
         } else if (input.type === 'password' && input.value.length < 4) {
-            console.log('changing form to false2');
             formIsValid = false;
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
             $('.password-feedback').text(`Password must be at least 4 characters`);
-        //     input.insertAdjacentHTML('afterend', `
-        //     <div class='alert ${input.id}-message'>
-        //       Password must be at least 4 characters
-        //     </div>
-        // `);
 
         // Password check
         } else if (document.getElementById('signupPassword').value !== document.getElementById('signupPassword2').value) {
             formIsValid = false;
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
-            console.log(`password 1 = ` + document.getElementById('signupPassword').value);
-            console.log(`password 2 = ` + document.getElementById('signupPassword2').value);
             $('.password-feedback').text(`Passwords do not match`);
         
 
@@ -45,13 +29,10 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             input.classList.remove('is-invalid');
             input.classList.add('is-valid');
         }
-        // console.log('first statement')
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
-        console.log(userData)
     });
-    console.log(formIsValid);
     // Signup form submission
     if (form.id === 'signupForm' && formIsValid) {
         fetch('/api/v1/signup', {
@@ -62,9 +43,6 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             body: JSON.stringify(userData)
         })
         .then(dataStream => dataStream.json())
-        .then(res => {
-            console.log(res);
-        })
         .then($('#signupForm').empty().append(`
         <p>Thank you for signing up.</p>
         <div class="modal-footer">
@@ -72,28 +50,12 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             <button type="button" data-toggle="modal" data-target="#loginModal">Login</button>
         </div>
         `))
-        .catch(error => console.log(error));
+        .catch(error => console.log('Error'));
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Login form
 document.getElementById('loginForm') && document.getElementById('loginForm').addEventListener('submit', (event) => {
-    console.log('click')
     let formIsValid = true;
     const userData = {};
     event.preventDefault();
@@ -101,29 +63,14 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
 
     [...document.getElementById('loginForm').elements].forEach(input =>  {
         if (input.type !== 'submit' && input.value === '') {
-            console.log('changing form to false');
-            console.log(`${input.type} and value is ${input.value}`);
             formIsValid = false;
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
-            // input.insertAdjacentHTML('afterend', `
-            // <div class='alert ${input.id}-message'>
-            //   Please enter your ${input.id}
-            // </div>
-        // `);
 
         } else if (input.type === 'password' && input.value.length < 4) {
-            console.log('changing form to false2');
             formIsValid = false;
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
-            
-        //     input.insertAdjacentHTML('afterend', `
-        //     <div class='alert ${input.id}-message'>
-        //       Password must be at least 4 characters
-        //     </div>
-        // `);
-
         
         } else {
             input.classList.remove('is-invalid');
@@ -132,13 +79,9 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
-        console.log(userData)
     });
-    console.log(formIsValid);
 // Handle Login
 if (formIsValid) {
-    console.log('login submit button');
-    console.log('submitting user login ---->', userData);
     fetch('/api/v1/login', {
         method: 'POST', 
         credentials: 'include',
@@ -149,11 +92,9 @@ if (formIsValid) {
     })
     .then(dataStream => dataStream.json())
     .then(res => {
-        console.log(res);
         console.log('login successful')
         if (res.status === 201) return window.location = `/profile/${res.data.id}`
-        // May need to update window location on login
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log('Error'))
 }
 });

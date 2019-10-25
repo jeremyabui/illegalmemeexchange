@@ -1,7 +1,5 @@
-console.log('memes are life');
 const form = document.querySelector('form');
 const userId = window.location.pathname.split('/')[2];
-console.log(userId);
 
 //--------------------Nav Functions--------------------------
 //Home Page Nav Button
@@ -26,7 +24,7 @@ const logoutError = () => {
 $('.logout').on('click', () => {
     $.ajax({
         method: 'DELETE',
-        url: 'http://localhost:3000/api/v1/logout',
+        url: '/api/v1/logout',
         credentials: 'include',
         success: logoutSuccess,
         error: logoutError,
@@ -45,7 +43,6 @@ const postMeme = () => {
     .then(dataStream=> dataStream.json())
     .then(res => {
         const memeArray = res.data;
-        console.log(memeArray)
         memeArray.forEach(function(meme) {
             $('.cardSection').prepend(`
             <div class="card">
@@ -60,7 +57,7 @@ const postMeme = () => {
             `);
         });
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log('Error'))
 }
 
 postMeme();
@@ -68,15 +65,12 @@ postMeme();
 // ------------ Form Submission ----------- //
 // Signup form submission
 document.getElementById('signupForm') && document.getElementById('signupForm').addEventListener('submit', (event) => {
-    console.log('click')
     let formIsValid = true;
     const userData = {};
     event.preventDefault();
 
     [...document.getElementById('signupForm').elements].forEach(input =>  {
         if (input.type !== 'submit' && input.value === '') {
-            console.log('changing form to false');
-            console.log(`${input.type} and value is ${input.value}`);
             formIsValid = false;
             input.classList.add('input-error');
             input.insertAdjacentHTML('afterend', `
@@ -85,7 +79,6 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             </div>
         `);
         } else if (input.type === 'password' && input.value.length < 4) {
-            console.log('changing form to false2');
             formIsValid = false;
             input.classList.add('input-error');
             input.insertAdjacentHTML('afterend', `
@@ -97,9 +90,7 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
-        console.log(userData)
     });
-    console.log(formIsValid);
     // Signup form submission
     if (form.id === 'signupForm' && formIsValid) {
         fetch('/api/v1/signup', {
@@ -110,24 +101,18 @@ document.getElementById('signupForm') && document.getElementById('signupForm').a
             body: JSON.stringify(userData)
         })
         .then(dataStream => dataStream.json())
-        .then(res => {
-            console.log(res);
-        })
-        .catch(error => console.log(error));
+        .catch(error => console.log('Error'));
     }
 });
 
 // Login form
 document.getElementById('loginForm') && document.getElementById('loginForm').addEventListener('submit', (event) => {
-    console.log('click')
     let formIsValid = true;
     const userData = {};
     event.preventDefault();
 
     [...document.getElementById('loginForm').elements].forEach(input =>  {
         if (input.type !== 'submit' && input.value === '') {
-            console.log('changing form to false');
-            console.log(`${input.type} and value is ${input.value}`);
             formIsValid = false;
             input.classList.add('input-error');
             input.insertAdjacentHTML('afterend', `
@@ -136,7 +121,6 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
             </div>
         `);
         } else if (input.type === 'password' && input.value.length < 4) {
-            console.log('changing form to false2');
             formIsValid = false;
             input.classList.add('input-error');
             input.insertAdjacentHTML('afterend', `
@@ -148,14 +132,10 @@ document.getElementById('loginForm') && document.getElementById('loginForm').add
         if (input.type !== 'submit' && formIsValid) {
             userData[input.name] = input.value;
         }
-        console.log(userData)
     });
-    console.log(formIsValid);
 
 // Handle Login
 if (formIsValid) {
-    console.log('login submit button');
-    console.log('submitting user login ---->', userData);
     fetch('/api/v1/login', {
         method: 'POST', 
         credentials: 'include',
@@ -166,10 +146,8 @@ if (formIsValid) {
     })
     .then(dataStream => dataStream.json())
     .then(res => {
-        console.log(res);
-        console.log('login successful')
         if (res.status === 201) return window.location = `/profile/${res.data.id}`
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log('Error'))
 }
 });
