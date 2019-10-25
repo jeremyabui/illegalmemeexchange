@@ -7,6 +7,7 @@ const db = require('./models');
 const routes = require('./routes');
 //instanced module
 const app = express();
+require('dotenv').config();
 
 //------------------------MIDDLEWARE---------------------------
 
