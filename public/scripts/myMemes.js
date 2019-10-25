@@ -1,5 +1,11 @@
 const userId = window.location.pathname.split('/')[3];
 
+// Toggle Sidebar
+$('#toggleSidebar').on('click', () => {
+    $('#sidebarNav').toggleClass('d-none');
+    $('#sidebarNav').toggleClass('d-block');
+})
+
 //Home Page Nav Button
 $('.go-home').on('click', () => {
     return window.location = `/profile/${userId}`
