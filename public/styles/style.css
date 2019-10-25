@@ -117,6 +117,14 @@ body {
 /* Meme Form Styling */
 
 .new-meme-form{
-    margin-top: 15vh;
-    margin-left: 20%;
+    margin-left: 10%;
+    height: 100vh;
+}
+
+#lockSidebarHeight {
+    height: 100vh;
+}
+
+#newMeme .form-group .form-control-lg {
+    width: 90%;
 }

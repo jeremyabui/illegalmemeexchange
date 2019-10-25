@@ -22,7 +22,6 @@
     <title>IME</title>
 </head>
 <body>
-    <!-- <h1>Welcome To IME</h1> -->
     <nav class="navbar fixed-top p-0 shadow">
         <button id="toggleSidebar">
             <span class="navbar-toggler-icon">&#9776;</span>
@@ -36,6 +35,9 @@
             <nav id="sidebarNav" class="col-2 d-none bg-light sidebar">
                 <div class="sidebar-sticky col-2">
                     <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active go-home" href='#'>Home</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active newMemeLink" href='#'>Post a New Meme</a>
                         </li>
@@ -51,10 +53,12 @@
 
             <!-- Main Body -->
             <main id="mainDiv" role="main" class="container">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="welcomeMsg">Welcome to IME</h1>
+                <div class="lockSidebarHeight">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="welcomeMsg">Welcome to IME</h1>
+                    </div>
+                    <section class="cardSection"></section>
                 </div>
-                <section class="cardSection"></section>
             </main>
         </div>
     </div>

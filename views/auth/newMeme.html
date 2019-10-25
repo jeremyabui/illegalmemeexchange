@@ -36,6 +36,9 @@
               <div class="sidebar-sticky col-2">
                   <ul class="nav flex-column">
                       <li class="nav-item">
+                          <a class="nav-link active go-home" href='#'>Home</a>
+                      </li>
+                      <li class="nav-item">
                           <a class="nav-link active newMemeLink" href='#'>Post a New Meme</a>
                       </li>
                       <li class="nav-item">
@@ -48,10 +51,13 @@
               </div>
           </nav>
  
-          <main id="mainDiv" role="main" class="container new-meme-form">
+          <main id="mainDiv" role="main" class="container">
+          <!-- <main id="mainDiv" role="main" class="container new-meme-form"> -->
+            <div class="new-meme-form">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="welcomeMsg">New Meme</h1>
             </div>
+            
             <form id="newMeme">
               <div class="form-group">
                 <label for="title">Title</label>
@@ -67,6 +73,7 @@
               </div>
               <input type="submit" class="btn btn-primary" value="Post a Meme!" />
             </form>
+          </div>
         </main>
     </div>
 </div>
